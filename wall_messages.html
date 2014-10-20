@@ -1,0 +1,54 @@
+
+<%
+def loop(self):
+	for message in self.model:
+		if(message[User.name] != None  and message[User.name] != "None"):
+%>
+
+<div class="contrib" data-id="<%=message[WallMessage.id]%>">
+<p> 
+	<h4><a href="/profil?user_id=<%=message["user_id"]%>"><%=message[User.name]%> <%=message[User.surname]%></a></h4>  
+	
+	<h5 class="date"><%=message[WallMessage.created]%></h5><br/>
+	<div class="text-message">
+		<%=message[WallMessage.message]%>
+	</div>
+	<a href="javascript:void(0)" class="show_comments">Zobrazit komentáře (<%=message["count_comments"]%>)</a>
+	<a href="javascript:void(0)" class="response">Okomentovat</a>
+	<div class="comments">
+	</div>
+	<div class="comment_form">
+		<br/>
+		<textarea name="comment" class="comment_input" rows="5" cols="60" maxlength="1000">Text komentáře...</textarea>
+		<br/>
+		<input type="submit" class="comment_submit" value="Přidat příspěvek">
+	</div>
+	
+</div>	
+<%
+		else:
+%>
+<div class="contrib" data-id="<%=message[WallMessage.id]%>" >
+<p> 
+	<h4><a href="/profil?user_id=<%=message["user_id"]%>"><%=message[User.email]%> </a></h4>  
+	
+	<h5 class="date"><%=message[WallMessage.created]%></h5><br/>
+	<div class="text-message">
+		<%=message[WallMessage.message]%>
+	</div>
+	<a href="javascript:void(0)" class="show_comments">Zobrazit komentáře (<%=message["count_comments"]%>)</a>
+	<a href="javascript:void(0)" class="response">Okomentovat</a>
+	<div class="comments">
+	</div>
+	<div class="comment_form">
+		<br/>
+		<textarea name="comment" class="comment_input" rows="5" cols="60" maxlength="1000">Text komentáře...</textarea>
+		<br/>
+		<input type="submit" class="comment_submit" value="Přidat příspěvek">
+	</div>
+</div>		
+<%
+		continue
+loop(self)
+%>
+

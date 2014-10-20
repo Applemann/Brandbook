@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Brandbook - Přihlášení</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <style>
+  .content{
+	  position: absolute;
+	  left:40%;
+	  top: 40%;
+  }
+  </style>
+</head>
+
+<body>
+<div class="content">
+<h3>Přihlášení</h3>
+
+<%=flashmessage%>
+
+
+	<form action="prihlaseni_send" method="post">
+		<table class="login_form" >
+			<tr><td> Email: </td><td> <input type="text" name="email" value=""> </td></tr>
+			<tr><td> Heslo: </td><td> <input type="password" name="password" value=""> </td></tr>
+			
+			<tr><td>  </td><td> <input type="submit" value="Přihlásit"> </td></tr>
+		</table>
+	</form>
+	<br/>
+	<p>Pokud nemáte založený účet, <a href="/registrace">zaregistrujte se</a>.</p>
+</div>
+
+</body>
+</html>

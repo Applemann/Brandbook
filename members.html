@@ -1,0 +1,61 @@
+
+<h2>Členové</h2>
+<br/><br/>
+
+<table id="members">
+<tr>
+<th>
+	Jméno:
+</th>
+<th>
+	Osobnostní profil:
+</th>
+<th>
+	Kdo to je:
+</th>
+<th>
+	Zabývá se:
+</th>
+</tr>
+<%
+def loop(self):
+	for member in self.model:
+		if(member[User.name] != None and member[User.name] != "None"):
+			%>
+			<tr>
+			<td>
+				<h4><a href="/profil?user_id=<%=member[User.id]%>"><%=member[User.name]%> <%=member[User.surname]%></a></h4>
+			</td>
+			<td>
+				<%=member[Profile.user_profile]%>
+			</td>
+			<td>
+				<%=member[Profile.job]%>
+			</td>
+			<td>
+				<%=member[Profile.doing]%>
+			</td>
+			</tr>
+			<%
+		else:
+		%>
+			<tr>
+			<td>
+				<h4><a href="/profil?user_id=<%=member[User.id]%>"><%=member[User.email]%> </a></h4>
+			</td>
+			<td>
+				<%=member[Profile.user_profile]%>
+			</td>
+			<td>
+				<%=member[Profile.job]%>
+			</td>
+			<td>
+				<%=member[Profile.doing]%>
+			</td>
+			</tr>
+<%
+		continue
+loop(self)
+%>
+
+</table>

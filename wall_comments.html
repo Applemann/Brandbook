@@ -1,0 +1,33 @@
+
+<%
+def loop(self):
+	for message in self.model:
+		if(message[User.name] != None and message[User.name] != "None"):
+%>
+
+<div class="comment">
+	<h4><a href="/profil?user_id=<%=message["user_id"]%>"><%=message[User.name]%> <%=message[User.surname]%></a></h4>  
+	
+	<h5 class="date"><%=message[WallComment.created]%></h5><br/>
+	<div class="text-message">
+		<%=message[WallComment.message]%>
+	</div>
+</div>
+
+<%
+		else:
+%>
+<div class="comment">
+	<h4><a href="/profil?user_id=<%=message["user_id"]%>"><%=message[User.email]%> </a></h4>  
+	
+	<h5 class="date"><%=message[WallComment.created]%></h5><br/>
+	<div class="text-message">
+		<%=message[WallComment.message]%>
+	</div>
+</div>
+
+<%
+		continue
+loop(self)
+%>
+

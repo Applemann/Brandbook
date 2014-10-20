@@ -1,0 +1,13 @@
+
+<h2>Chat</h2><br/><br/>
+<div class="scrollbar-chrome">
+	<div id="messages"  style="width: 420px;"><%=messages%></div>
+</div>
+
+<p><p>
+<div class="send_form">
+	<input id="chat_input" type="text" name="message" value="" maxlength="1000" style="width: 370px;">
+	<input id="submit_form" type="button" value="odeslat">
+</div>
+
+<script>setInterval("update()", 1000);</script>

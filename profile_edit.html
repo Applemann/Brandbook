@@ -1,0 +1,34 @@
+<%=flashmessage%>
+<h2>Profil</h2>
+<br>
+<%
+if self.profile_form[Profile.web] == None:
+	self.profile_form[Profile.web] = "http://"
+
+%>
+<form method="post" action="profil_send">
+<table>
+<tr><td>Přezdívka:</td><td><input type="text" name="<%=User.nick%>" value="<%=self.profile_form[User.nick]%>"></td></tr>
+<tr><td>Jméno:</td><td><input type="text" name="<%=User.name%>" value="<%=self.profile_form[User.name]%>"></td></tr>
+<tr><td>Příjmení:</td><td><input type="text" name="<%=User.surname%>" value="<%=self.profile_form[User.surname]%>"></td></tr>
+<tr><td>Email: </td><td><input type="text" name="<%=User.email%>" value="<%=self.profile_form[User.email]%>"></td></tr>
+<tr><td>Web: </td><td><input type="text" name="<%=Profile.web%>" value="<%=self.profile_form[Profile.web]%>"></</td></tr>
+<tr><td>Osobnostní profil: </td><td><input type="text" name="<%=Profile.user_profile%>" value="<%=self.profile_form[Profile.user_profile]%>"></td></tr>
+
+</table>
+Udělejte si test osobnostního profilu online: <a href="http://otestuj-se.cz/profily-budovani-znacek/" target="_blank">Test zde</a>
+<p>
+<p>
+<b>Jsem</b> <input type="text" name="<%=Profile.job%>" value="<%=self.profile_form[Profile.job]%>"> <br/>
+<b>a zabývám se</b>  <input type="text" size="50" name="<%=Profile.doing%>" value="<%=self.profile_form[Profile.doing]%>">
+</p>
+
+<div style="position:relative; left:-100px"><br/><br/>
+	<center><h3>Můj příběh:</h3></center><br/>
+<textarea name="<%=Profile.story%>" cols="80" rows="30" maxlength="10000" wrap="off">
+<%=self.profile_form[Profile.story]%>
+</textarea>
+</div>
+<br/><br/>
+<input type="submit" value="Uložit změny">
+</form>

@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+<%=flashmessage%>
+
+
+
+<%
+if self.profile_form[User.name] != "None" and self.profile_form[User.name] != None: 
+	%>
+<h2 class="profil_lable">Profil uživatele <%=self.profile_form[User.name]%> <%=self.profile_form[User.surname]%></h2>
+<%
+else:
+	%>
+<h2 class="profil_lable">Profil uživatele <%=self.profile_form[User.email]%></h2>
+<%
+
+%>
+<br>
+<%
+if self.profile_form[User.id] == self.session[SESSION_USER]: 
+	%>
+<a href="/profil_edit"><input type="button" value="Změnit profil"></a>
+<%
+%>
+<table>
+<tr><td>Přezdívka:</td><td><%=self.profile_form[User.nick]%></td></tr>
+<tr><td>Jméno:</td><td><%=self.profile_form[User.name]%></td></tr>
+<tr><td>Příjmení:</td><td> <%=self.profile_form[User.surname]%></td></tr>
+<tr><td>Email: </td><td><a href="mailto:<%=self.profile_form[User.email]%>"><%=self.profile_form[User.email]%></a></td></tr>
+<tr><td>Web: </td><td><a href="<%=self.profile_form[Profile.web]%>"><%=self.profile_form[Profile.web]%></a></</td></tr>
+<tr><td>Osobnostní profil: </td><td><%=self.profile_form[Profile.user_profile]%></td></tr>
+
+</table>
+
+
+
+<p>
+<b>Jsem</b> <%=self.profile_form[Profile.job]%> <br/>
+<b>a zabývám se</b> <%=self.profile_form[Profile.doing]%>
+</p>
+<div style="position:relative; left:-100px; width: 650px;"><br/><br/>
+	<center><h3>Můj příběh:</h3></center><br/>
+<%=self.profile_form[Profile.story].replace("\n", "<br/>")%>
+</div>

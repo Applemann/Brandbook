@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+self.req.write("""
+""",0);
+def loop(self):
+	for message in self.model:
+		if(message[User.name] != None and message[User.name] != "None"):
+			self.req.write("""
+
+<div class=\"comment\">
+	<h4><a href=\"/profil?user_id=""",0); self.req.write(str(message["user_id"]),0); self.req.write("""\">""",0); self.req.write(str(message[User.name]),0); self.req.write(""" """,0); self.req.write(str(message[User.surname]),0); self.req.write("""</a></h4>  
+	
+	<h5 class=\"date\">""",0); self.req.write(str(message[WallComment.created]),0); self.req.write("""</h5><br/>
+	<div class=\"text-message\">
+		""",0); self.req.write(str(message[WallComment.message]),0); self.req.write("""
+	</div>
+</div>
+
+""",0);
+		else:
+			self.req.write("""
+<div class=\"comment\">
+	<h4><a href=\"/profil?user_id=""",0); self.req.write(str(message["user_id"]),0); self.req.write("""\">""",0); self.req.write(str(message[User.email]),0); self.req.write(""" </a></h4>  
+	
+	<h5 class=\"date\">""",0); self.req.write(str(message[WallComment.created]),0); self.req.write("""</h5><br/>
+	<div class=\"text-message\">
+		""",0); self.req.write(str(message[WallComment.message]),0); self.req.write("""
+	</div>
+</div>
+
+""",0);
+		continue
+loop(self)
+self.req.write("""
+
+""",0)
